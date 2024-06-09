@@ -87,6 +87,7 @@ UpdateLightValues :: proc(shader: rl.Shader, light: Light) {
 
 
 main::proc() {
+	
 		screenWidth  :i32= 800   // Framebuffer width
         screenHeight :i32= 450
         fps:= 60
@@ -165,31 +166,7 @@ main::proc() {
 		rl.SetShaderValue(
 			shader,
 			rl.ShaderLocationIndex(shader.locs[rl.ShaderLocationIndex.VECTOR_VIEW]), &cameraPosition,rl.ShaderUniformDataType.VEC3)
-		// Apply per-instance transformations
-		// for i := 0; i < MAX_INSTANCES; i++ {
-		// 	rotations[i] = rl.MatrixMultiply(rotations[i], rotationsInc[i])
-		// 	transforms[i] = rl.MatrixMultiply(rotations[i], translations[i])
-
-		// 	// Get the animation cycle's framesCounter for this instance
-		// 	loop = float32((framesCounter+int(float32(i%groups)/float32(groups)*float32(speed)))%speed) / float32(speed)
-
-		// 	// Calculate the y according to loop cycle
-		// 	y := float32(math.Sin(float64(loop)*rl.Pi*2)) * amp *
-		// 		((1 - variance) + (float32(variance) * float32(i%(groups*10)) / float32(groups*10)))
-
-		// 	// Clamp to floor
-		// 	if y < 0 {
-		// 		y = 0
-		// 	}
-
-		// 	transforms[i] = rl.MatrixMultiply(transforms[i], rl.MatrixTranslate(0.0, y, 0.0))
-		// }
-
-		rl.UpdateCamera(&camera, rl.CameraMode.ORBITAL) // Update camera with orbital camera mode
-		//----------------------------------------------------------------------------------
-
-		// Draw
-		//----------------------------------------------------------------------------------
+		
 		rl.BeginDrawing()
 		{
 			
